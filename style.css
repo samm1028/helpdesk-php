@@ -1,0 +1,13 @@
+.judul {
+    color: #333;
+    font-size: 2em;
+    text-align: center;
+}
+
+.form-laporan {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

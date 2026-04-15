@@ -1,9 +1,21 @@
 <?php
+
+include 'koneksi.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nama = $_POST['nama'];
     $laporan = $_POST['laporan'];
 
-    echo "<div style='color:green;'> <b> sukses </b> Laporan dari  <b>$nama</b> telah diterima;<i>$laporan</i></div>";
+    $query = "INSERT INTO pengaduan (nama, laporan) VALUES ('$nama', '$laporan')";
+
+    
+
+    if (mysqli_query($conn, $query)) {
+        echo "<div style='color:green;'> <b> sukses </b> Laporan dari  Laporan telah berhasil di simpan ke database </div><hr>";
+    } else {
+        echo "Error: ".mysqli_error($conn);
+    }
+
 }
 ?>
 
@@ -20,18 +32,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1 class="judul">
         Laporan pengaduan
     </h1>
-
+<div class="container-form">
 <form action="" method="post"  class="form-laporan">
-    <label for="nama">Nama Anda</label><br>
-    <input type="text" name="nama" placeholder="Masukkan nama Anda" id="nama"><br><br>
+    <label for="nama" class="form-nama">Nama Anda</label><br>
+    <input type="text" name="nama" class="form-input" placeholder="Masukkan nama Anda" id="nama"><br><br>
 
 
-    <label for="laporan">Isi Laporan</label><br>
-    <textarea name="laporan" id="laporan"  placeholder="Masukkan laporan Anda" ></textarea><br><br>
+    <label for="laporan" class="form-laporan">Isi Laporan</label><br>
+    <textarea name="laporan" id="laporan" class="form-textarea" placeholder="Masukkan laporan Anda" ></textarea><br><br>
 
 
-    <button type="submit" class="btn-primary">Kirim Laporan</button>
+    <center><button type="submit"  class="form-button">Kirim Laporan</button></center>
 
 </form>
+
+</div> 
 </body>
 </html>

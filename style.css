@@ -1,13 +1,63 @@
-.judul {
-    color: #333;
-    font-size: 2em;
-    text-align: center;
-}
-
-.form-laporan {
-    width: 300px;
+.container-form {
+    max-width: 600px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: 300px;
+}
+
+
+.judul {
+    color: #333;
+    font-size: 2em;
+    text-align: center;
+    font-style: oblique;
+}
+
+.form-laporan {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+   
+  
+}
+
+.form-laporan{
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.form-nama{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 50px;
+    
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.form-textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    height: 100px;
+}
+
+.form-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.form-button:hover {
+    background-color: #45a049;
 }

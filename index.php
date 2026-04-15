@@ -2,6 +2,8 @@
 
 include 'koneksi.php';
 
+$ambil_data = mysqli_query($conn, "SELECT * FROM pengaduan");
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nama = $_POST['nama'];
     $laporan = $_POST['laporan'];
@@ -42,10 +44,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <textarea name="laporan" id="laporan" class="form-textarea" placeholder="Masukkan laporan Anda" ></textarea><br><br>
 
 
-    <center><button type="submit"  class="form-button">Kirim Laporan</button></center>
+    <center><button type="submit" onclick="return confirm('Apakah Anda yakin ingin mengirim laporan ini?')" class="form-button">Kirim Laporan</button></center>
 
 </form>
 
 </div> 
+
+<hr>
+
+<div class="container-laporan">
+    <h2>
+    Daftar Laporan Masuk
+    </h2>
+    <table class="tabel-laporan">
+        <tr>
+            <th>No</th>
+            <th>Nama Pelapor</th>
+            <th>Laporan</th>
+        </tr>
+   
+
+    <?php
+    $no = 1;
+    while($row = mysqli_fetch_array($ambil_data)) {
+         ?>
+    <tr>
+        <td><?php echo $no++; ?></td>
+        <td><?php echo $row['nama']; ?></td>
+        <td><?php echo $row['laporan']; ?></td>
+
+        <td>
+            <a href="hapus.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus laporan ini?')">Hapus</a>
+        </td>
+    </tr>
+    <?php } ?>
+    </table>
+</div>
 </body>
 </html>

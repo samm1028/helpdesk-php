@@ -76,6 +76,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <td>
             <a href="hapus.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus laporan ini?')">Hapus</a>
         </td>
+
+         <td>
+            <a href="edit.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Apakah Anda yakin ingin mengedit laporan ini?')">Edit</a>
+        </td>
     </tr>
     <?php } ?>
     </table>
